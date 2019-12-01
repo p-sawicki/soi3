@@ -1,0 +1,15 @@
+[1575165829] Taking 25 items.
+[1575165829] Space in magazine after: 95.
+
+[1575165832] Taking 25 items.
+[1575165832] Space in magazine after: 25.
+
+[1575165836] Taking 25 items.
+[1575165836] Space in magazine after: 45.
+
+[1575165840] Taking 25 items.
+[1575165840] Space in magazine after: 65.
+
+[1575165844] Taking 25 items.
+[1575165844] Space in magazine after: 85.
+

@@ -1,0 +1,16 @@
+[1575165828] Inserted 15 items.
+[1575165828] Space in magazine after insertion: 70.
+
+[1575165832] Can't insert 15 items due to lack of space.
+[1575165835] Inserted 15 items.
+[1575165835] Space in magazine after insertion: 20.
+
+[1575165839] Inserted 15 items.
+[1575165839] Space in magazine after insertion: 40.
+
+[1575165843] Inserted 15 items.
+[1575165843] Space in magazine after insertion: 60.
+
+[1575165845] Inserted 15 items.
+[1575165845] Space in magazine after insertion: 70.
+

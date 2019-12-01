@@ -1,0 +1,15 @@
+[1575165827] Inserted 15 items.
+[1575165827] Space in magazine after insertion: 85.
+
+[1575165830] Inserted 15 items.
+[1575165830] Space in magazine after insertion: 80.
+
+[1575165833] Inserted 15 items.
+[1575165833] Space in magazine after insertion: 10.
+
+[1575165837] Inserted 15 items.
+[1575165837] Space in magazine after insertion: 30.
+
+[1575165841] Inserted 15 items.
+[1575165841] Space in magazine after insertion: 50.
+

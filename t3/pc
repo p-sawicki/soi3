@@ -1,0 +1,24 @@
+#!/bin/sh
+#parameters:	1 - magazine size
+#		2 - number of producers
+#		3 - number of consumers
+#		4 - min produce amount
+#		5 - max produce amount
+#		6 - min consume amount
+#		7 - max consume amount
+#		8 - time in seconds
+echo "starting $2 producers and $3 consumers."
+rm magazine.txt
+echo "$1" >> magazine.txt
+i=$2
+while `expr $i != 0`
+do
+./prod $i $1 $4 $5 $8 &
+i=`expr $i - 1`
+done
+i=$3
+while `expr $i != 0`
+do
+./cons $i $1 $6 $7 $8 &
+i=`expr $i - 1`
+done
