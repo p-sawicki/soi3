@@ -1,0 +1,40 @@
+[1575214540] Producer #2 inserted 6 items.
+[1575214540] In magazine after insertion: 6.
+
+[1575214542] Producer #1 inserted 3 items.
+[1575214542] In magazine after insertion: 9.
+
+[1575214544] Consumer #2 can't take 89 items.
+[1575214544] Consumer #1 can't take 72 items.
+[1575214544] Producer #2 inserted 7 items.
+[1575214544] In magazine after insertion: 16.
+
+[1575214546] Consumer #2 can't take 89 items.
+[1575214546] Producer #1 inserted 1 items.
+[1575214546] In magazine after insertion: 17.
+
+[1575214548] Consumer #1 can't take 72 items.
+[1575214548] Producer #2 inserted 5 items.
+[1575214548] In magazine after insertion: 22.
+
+[1575214550] Consumer #2 can't take 89 items.
+[1575214550] Producer #1 inserted 5 items.
+[1575214550] In magazine after insertion: 27.
+
+[1575214552] Consumer #1 can't take 72 items.
+[1575214552] Producer #2 inserted 3 items.
+[1575214552] In magazine after insertion: 30.
+
+[1575214554] Consumer #2 can't take 89 items.
+[1575214554] Producer #1 inserted 5 items.
+[1575214554] In magazine after insertion: 35.
+
+[1575214556] Consumer #1 can't take 72 items.
+[1575214556] Producer #2 inserted 3 items.
+[1575214556] In magazine after insertion: 38.
+
+[1575214558] Consumer #2 can't take 89 items.
+[1575214558] Producer #1 inserted 3 items.
+[1575214558] In magazine after insertion: 41.
+
+[1575214560] Consumer #1 can't take 72 items.

@@ -8,17 +8,21 @@
 #define FULL_DELAY 1
 #define EMPTY_DELAY 2
 #define BUFFER_FILE "magazine.txt"
-int getMagazineSpace(FILE *f){
+int getInMagazine(FILE *f){
 	int inMagazine = 0;
 	fscanf(f, "%d", &inMagazine);
 	return inMagazine;
 }
-void setMagazineSpace(FILE *f, int amount){
+void setInMagazine(FILE *f, int amount){
 	fclose(f);
 	f = fopen(BUFFER_FILE, "w");
 	fprintf(f, "%d", amount);
-	printf("Current space in magazine: %d\n", amount);
+	printf("Currently in magazine: %d\n", amount);
 }
 int uniformDistribution(int min, int max){
 	return min + rand() % (max - min + 1);
+}
+int sem_uninit(void){
+	message m;
+	return _syscall(MM, SEM_UNINIT, &m);
 }

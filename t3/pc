@@ -6,10 +6,11 @@
 #		5 - max produce amount
 #		6 - min consume amount
 #		7 - max consume amount
-#		8 - time in seconds
+#		8 - operations per producer / consumer 
 echo "starting $2 producers and $3 consumers."
 rm magazine.txt
-echo "$1" >> magazine.txt
+rm fullLog.txt
+echo "0" >> magazine.txt
 i=$2
 while `expr $i != 0`
 do

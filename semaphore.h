@@ -27,8 +27,3 @@ int sem_status(int sem_num, int *value, int *num_blocked){
 	*num_blocked = _syscall(MM, SEM_STATUS2, &m);
 	return 0;
 }
-int sem_uninit(int sem_num){
-	message m;
-	m.m1_i1 = sem_num;
-	return _syscall(MM, SEM_UNINIT, &m);
-}
