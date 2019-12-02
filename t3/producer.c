@@ -5,7 +5,7 @@ int main(int argc, char **argv){
 	int produceAmount, inMagazine, value, blocked, i;
 	int maxInMagazine = atoi(argv[2]);
 	int currentTime;
-	srand((int)time(0) + atoi(argv[1]));
+	srand((int)time(0) + 420 * atoi(argv[1]));
 	sem_init(FILE_MUTEX, 1);
 	sem_init(FULL_DELAY, 0);
 	sem_init(EMPTY_DELAY, 0);
