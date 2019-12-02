@@ -11,8 +11,9 @@ int main(int argc, char **argv){
 	sem_init(EMPTY_DELAY, 0);
 	strcat(fileName, argv[1]);
 	strcat(fileName, ".txt");
-	logFile = fopen(fileName, "w");
 	printf("Starting producer #%s.\n", argv[1]);
+	logFile = fopen(fileName, "w"); /* clear file */
+	fclose(logFile);
 	for(i = 0; i < atoi(argv[5]); ++i){
 		produceAmount = uniformDistribution(atoi(argv[3]), atoi(argv[4]));
 		sem_down(FILE_MUTEX);
@@ -27,16 +28,20 @@ int main(int argc, char **argv){
 			fclose(fullLogFile);
 			sem_up(FILE_MUTEX);
 			printf("Producer #%s can't insert %d items due to lack of space.\n", argv[1], produceAmount);
+			logFile = fopen(fileName, "a");
 			fprintf(logFile, "[%d] Can't insert %d items due to lack of space.\n", currentTime, produceAmount);
+			fclose(logFile);
 			sem_down(FULL_DELAY);
 			bufferFile = fopen(BUFFER_FILE, "r");
 			inMagazine = getInMagazine(bufferFile);
 		}
 		currentTime = (int)time(0);
 		printf("Producer #%s inserts %d items.\n", argv[1], produceAmount);
+		logFile = fopen(fileName, "a");
 		fprintf(logFile, "[%d] Inserted %d items.\n", currentTime, produceAmount);
 		setInMagazine(bufferFile, inMagazine + produceAmount);
 		fprintf(logFile, "[%d] In magazine after insertion: %d.\n\n", currentTime, inMagazine + produceAmount);
+		fclose(logFile);
 		fullLogFile = fopen("fullLog.txt", "a");
 		fprintf(fullLogFile, "[%d] Producer #%s inserted %d items.\n", currentTime, argv[1], produceAmount);
 		fprintf(fullLogFile, "[%d] In magazine after insertion: %d.\n\n", currentTime, inMagazine + produceAmount);

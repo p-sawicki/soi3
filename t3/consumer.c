@@ -11,8 +11,9 @@ int main(int argc, char **argv){
 	sem_init(EMPTY_DELAY, 0);
 	strcat(fileName, argv[1]);
 	strcat(fileName, ".txt");
-	logFile = fopen(fileName, "w");
 	printf("Starting consumer #%s\n", argv[1]);
+	logFile = fopen(fileName, "w"); /* clear file */
+	fclose(logFile);
 	for(i = 0; i < atoi(argv[5]); ++i){
 		consumeAmount = uniformDistribution(atoi(argv[3]), atoi(argv[4]));
 		sem_down(FILE_MUTEX);
@@ -27,7 +28,9 @@ int main(int argc, char **argv){
 			fclose(bufferFile);
 			sem_up(FILE_MUTEX);
 			printf("Consumer #%s can't take %d items.\n", argv[1], consumeAmount);
+			logFile = fopen(fileName, "a");
 			fprintf(logFile, "[%d] Can't take %d items.\n", currentTime, consumeAmount);
+			fclose(logFile);
 			sem_down(EMPTY_DELAY);
 			bufferFile = fopen(BUFFER_FILE, "r");
 			inMagazine = getInMagazine(bufferFile);
@@ -38,8 +41,10 @@ int main(int argc, char **argv){
 		fprintf(fullLogFile, "[%d] In magazine after: %d.\n\n", currentTime, inMagazine - consumeAmount);
 		fclose(fullLogFile);
 		printf("Consumer #%s takes %d items.\n", argv[1], consumeAmount);
+		logFile = fopen(fileName, "a");
 		fprintf(logFile, "[%d] Taking %d items.\n", currentTime, consumeAmount);
 		fprintf(logFile, "[%d] In magazine after: %d.\n\n", currentTime, inMagazine - consumeAmount);
+		fclose(logFile);
 		setInMagazine(bufferFile, inMagazine - consumeAmount);
 		sem_status(FULL_DELAY, &value, &blocked);
 		fclose(bufferFile);
@@ -50,7 +55,6 @@ int main(int argc, char **argv){
 			sem_up(FILE_MUTEX);
 	}
 	printf("Ending consumer #%s\n", argv[1]);
-	fclose(logFile);
 	sem_init(EMPTY_DELAY, -1);
 	sem_init(FULL_DELAY, -1);
 	sem_init(FILE_MUTEX, -1);

@@ -13,6 +13,8 @@ int sem_up(int sem_num){
 	m.m1_i1 = sem_num;
 	return _syscall(MM, SEM_UP, &m);
 }
+/* value = -1 attempts to deinitialize the given semaphore
+ only does so if no processes are waiting on that semaphore */
 int sem_init(int sem_num, int value){
 	message m;
 	m.m1_i1 = sem_num;
